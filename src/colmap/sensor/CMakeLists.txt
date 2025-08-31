@@ -34,6 +34,7 @@ COLMAP_ADD_LIBRARY(
     NAME colmap_sensor
     SRCS
         bitmap.h bitmap.cc
+        bitmap_oiio.h bitmap_oiio.cc
         database.h database.cc
         models.h models.cc
         rig.h rig.cc
@@ -54,6 +55,13 @@ COLMAP_ADD_TEST(
     LINK_LIBS
         colmap_sensor
         freeimage::FreeImage
+)
+COLMAP_ADD_TEST(
+    NAME bitmap_oiio_test
+    SRCS bitmap_oiio_test.cc
+    LINK_LIBS
+        colmap_sensor
+        OpenImageIO::OpenImageIO
 )
 COLMAP_ADD_TEST(
     NAME database_test
